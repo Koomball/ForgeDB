@@ -10,6 +10,7 @@ An advanced DataBase extension for ForgeScript.
     - [Quick Installation](#quick-installation)
     - [MongoDB Installation](#mongodb-installation)
     - [Other DB Installation](#other-db-installation)
+    - [Android Termux Installation](#android-termux-installation)
 2. [How to use Events](#how-to-use-events)
 3. [How to update](https://github.com/tryforge/ForgeDB/blob/main/guides/how-to-update.md)
 4. [Documentation](https://docs.botforge.org/p/ForgeDB/)
@@ -34,7 +35,7 @@ const client = new ForgeClient({
     ]
 })
 ```
-And voi-la, you bot now has been connected to a local database.
+And voi-la, you bot now has been connected a local database.
 
 ### MongoDB Installation
 
@@ -58,7 +59,7 @@ const client = new ForgeClient({
     ]
 })
 ```
-And voi-la, you bot now has been connected to a mongo database.
+And voi-la, you bot now has been connected a mongo database.
 
 ### Other DB Installation
 If you want to install other dbs you need to follow these steps:
@@ -100,8 +101,20 @@ const client = new ForgeClient({
     ]
 })
 ```
-And voi-la, you bot now has been connected to a database.
+And voi-la, you bot now has been connected a database.
 
+### Android Termux Installation.
+When installing sqlite based databases you may incounter a error relating to android_ndk_path and gypi, to resolve this error run this in the root directory of termux (Home) or your console of choice. <br>
+`mkdir .gyp` then in a code editor of your choice access the home directory and create a file in the new `.gyp` folder called `include.gypi`.<br>
+inside your include.gypi paste this code.
+```gypi
+    {
+        'variables': {
+            'android_ndk_path': ''
+    }
+}
+```
+This will allow node to build sqlite on your android device.
 ### How to use Events
 Once you configure your database you will head over to the main file of your bot and you will type this
 ```ts
@@ -127,6 +140,6 @@ And voi-la, you learnt how to use database events!
 
 ## Credits
 Thanks for reading this guide and for using ForgeDB <br>
-This package was made with love by [aggelos](https://discord.com/users/637648484979441706), a developer of ForgeScript. Use ForgeScript, it's better and easier.
+This package was made by with love [aggelos](https://discord.com/users/637648484979441706), a developer of ForgeScript. Use ForgeScript, it's better and easier.
 
 Also huge thanks to [aditya](https://discord.com/users/903681538842054686) and [aurea](https://discord.com/users/976413539076026388) for their contributions <3
